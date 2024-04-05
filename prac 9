@@ -1,0 +1,81 @@
+**First create a html file using Notepad**
+Practchk.html
+<!DOCTYPE html>
+<html>
+<body>
+<form>
+<h2>Text Input</h2>
+First Name:</br>
+<input type="text" name="Firstname">
+</br>
+Last Name:</br>
+<input type="text" name="lastname">
+</br>
+<h2>Select Gender</h2>
+<input type="radio" name="gender" value="male" checked>Male</br>
+<input type="radio" name="gender" value="female">Female</br>
+<input type="radio" name="gender" value="others">Others</br>
+<h2>Select Languages Known</h2>
+<input type="checkbox" name="lang" value="Java">Java</br>
+<input type="checkbox" name="lang" value="Php">Php</br>
+<input type="checkbox" name="lang" value="ASP.net">.Net</br>
+<input type="checkbox" name="lang" value="Python" checked="checked">Python</br>
+<input type="submit" value="submit"></br>
+</form>
+</body>
+</html>
+
+
+
+Eclipsecode:
+importjava.util.*;
+importorg.openqa.selenium.By;
+importorg.openqa.selenium.WebDriver;
+importorg.openqa.selenium.WebElement;
+importorg.openqa.selenium.firefox.FirefoxDriver;
+publicclassTestCheckboxes {
+static String driverPath="F:\\st\\geckodriver\\geckodriver-v0.24.0-win64";
+publicstatic WebDriver driver;
+publicstaticvoid main(String[] args)
+{
+// TODO auto generated method stub
+System.setProperty("webdriver.gecto.driver",driverPath);
+WebDriver driver=newFirefoxDriver();
+driver.get("file:///F:/st/practchk.html");
+intradiochk=0,checkboxchk=0;
+intradiounchk=0,checkboxunchk=0;
+List<WebElement>els=driver.findElements(By.xpath("//input[@type='radio']"));
+for(WebElementel:els)
+{
+if(el.isSelected())
+{
+radiochk++;
+}
+else{
+
+radiounchk++;
+}
+
+}
+System.out.println("Radio Buttons");
+System.out.println("Total Checked items"+ radiochk);
+System.out.println("Total unChecked items"+ radiounchk);
+List<WebElement>ebox=driver.findElements(By.xpath("//input[@type='checkbox']"
+));
+for(WebElementel:ebox)
+{
+if(el.isSelected())
+{
+checkboxchk++;
+}
+else{
+
+checkboxunchk++;
+}
+
+}
+System.out.println("Checkboxes");
+System.out.println("Total Checked items"+ checkboxchk);
+System.out.println("Total unChecked items"+ checkboxunchk);
+}
+}
