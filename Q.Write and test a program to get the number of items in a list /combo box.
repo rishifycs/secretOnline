@@ -1,0 +1,22 @@
+importjava.util.*;
+importorg.openqa.selenium.By;
+importorg.openqa.selenium.WebDriver;
+importorg.openqa.selenium.WebElement;
+importorg.openqa.selenium.firefox.FirefoxDriver;
+importorg.openqa.selenium.support.ui.Select;
+publicclassTestComboBox {
+
+static String driverPath="F:\\st\\geckodriver\\geckodriver-v0.24.0-win64";
+publicstatic WebDriver driver;
+publicstaticvoid main(String[] args)
+{
+// TODO auto generated method stub
+System.setProperty("webdriver.gecto.driver",driverPath);
+WebDriver driver=newFirefoxDriver();
+driver.get("https://www.facebook.com/");
+Select se=newSelect(driver.findElement(By.xpath("//Select[@id='month']")));
+List <WebElement>mylist=se.getOptions();
+mylist.size();
+System.out.println("Number of items="+mylist.size());
+}
+}
